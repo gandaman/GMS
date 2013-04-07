@@ -1,0 +1,105 @@
+GENIVI MINIMAL SYSTEM
+
+INTRO
+This is a test project for GENIVI software.  It is not useable as a basis for
+an in-vehicle / embedded system.  It is mostly a testbed for compilation and
+configuration issues, and is executable only to the extent of running some
+basic tests.
+
+Therefore:
+ - No cross compilation
+ - No fancy frameworks 
+   (Whatever OE/Yocto is this is not, for better and for worse)
+ - Goals: 
+         - Stay lean and simple
+         - Solve things straight-on and with minimal fuss
+ - Not Goals: 
+         - Doing things "the right way"
+         - future-proofing, portability 
+         - even readability... but maybe later some work on higher level
+           constructs and abstraction in the scripts
+ - Might break any time 
+ - ... but can probably be quickly fixed too
+ - ... and shouldn't break spontaneously (submodules are locked to a commit)
+ - Might get out of date - submodules require explicitly bumping
+   to new version as new commits arrive in the components
+ - Build result executes on your host in a chrooted shell
+   ... so it will never support any "embedded" features e.g. layermanager etc.
+   ... and likely will not prioritize graphical applications, browsers etc.
+   ... and no boot of kernel/init, at least now (see GLASS ELEVATOR)
+   ... and is useful for testing infrastructure components primarily.
+
+FEATURES
+ - A single project git tree that pulls in components as submodules
+   (non-git component has a download script instead)
+ - Small and simple Bourne-shell build scripts, one per component
+ - Separate patch directory.  
+   N.B.:   Patching is necessary to make this build even
+           work(!) Please look at these and either fix upstream or tell 
+           me I'm stupid. There are really only 2 possibilities...)
+ - chroot execution
+ - Busybox commandline, so that you can move around and try stuff.  
+   Configure it as you wish - by default it uses defconfig which includes 
+   quite a lot.
+
+HOWTO
+ - Clone the gms project
+ - Install host build deps that you know of (gcc/g++, build_essential,
+   glib, gio, libgcrypt, dbus etc.)
+   There are quite a few others, you might find info in the component docs.
+ - Run scripts/init.sh to pull source code into submodules and apply patches
+ - Then try scripts/build-xxx one by one, especially if you think you are
+   missing deps.  When everything is fulfilled you can also use "build-all.sh"
+   Look at "build-all.sh" to see the required build order, or you will have
+   unnecessary failures because of that.
+ - Install missing build deps.  Repeat.
+ - Run scripts/start_chroot.sh (also done by build-all).
+
+TODOs (don't count on it... do it yourself and send a patch)
+ - Finish it.  Make it useable.  Actually try all binaries to see what runtime
+   deps are missing.
+ - Add remaining GENIVI components
+ - So far almost nothing runs. E.g. D-Bus communication (which
+   by definition can NOT work now, since the libs are not even compiled
+   or copied to the chroot environment.)
+ - See if systemd runs and is useful despite not being the init process
+ - Implement an application that uses Lifecycle
+ - Implement an application that uses Persistence
+ - Test build system on a clean host and document build deps
+ - Put a copy of Itzam code in github to have uniform handling of all components
+   (or just leach off Baserock repos that do exactly that ;-)  But it works
+   this way too.
+
+GLASS ELEVATOR (i.e. "wish list" features that may never see the light of day)
+ - Automatic download of all host build deps
+ - Support multiple host distros out of the box
+ - Add kernel+systemd init and run virtualized with KVM tool, or in QEMU. 
+ - AF_BUS, if previous point is ever done
+ - Shrink target, live up to the Minimal name.  (Some components install docs
+   and such useless crap in the target root fs. This gives embedded engineers
+   nightmares)
+ - Run using LXC instead of chroot.  In its current state I think the
+   difference would be negligible.
+ - Submit GMS as a compliant distro, because if it passes it surely identifies 
+   something wrong in the compliance process ;-)
+
+BUGS AND SUCH
+ - Lots, in the form of things that are not finished and simply
+   have not even been tried yet.  Most obviously, D-Bus not yet
+   running.
+ - No check and report on missing build deps
+ - Untested on other host distros.  Probably has some Ubuntuisms...
+ - If submodules don't init and fetch fully on the first try, the git tree can
+   be in a very confus{ed,ing} state that is tough to get out of.  But that's
+   not my bug, imho.  Start clean if you run into this.
+ - ltsi-kernel should not be in the tree since it is not used
+
+LICENSE
+Components have their respective licenses and copyright holders as
+indicated in their source trees.
+Scripts and additions, for now:
+(C) 2013 Gunnar Andersson
+Creative Commons Attribution Sharealike 3.0
+(http://creativecommons.org/licenses/by-sa/3.0/)
+
+ 
