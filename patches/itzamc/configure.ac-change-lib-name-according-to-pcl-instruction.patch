@@ -1,0 +1,11 @@
+--- itzamc/configure.ac	2013-04-06 22:46:37.219311042 +0200
++++ patched/itzamc/configure.ac	2013-04-06 22:46:26.571310984 +0200
+@@ -1,7 +1,7 @@
+ AC_INIT(src/itzam.h)
+ AC_CONFIG_MACRO_DIR([m4])
+ 
+-GENERIC_LIBRARY_NAME=libitzam
++GENERIC_LIBRARY_NAME=itzam
+ 
+ #release versioning
+ GENERIC_MAJOR_VERSION=6

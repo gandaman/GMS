@@ -1,0 +1,14 @@
+--- persistence-client-library/test/Makefile.am	2013-04-06 23:34:55.531326960 +0200
++++ patched/persistence-client-library/test/Makefile.am	2013-04-06 23:34:48.535326920 +0200
+@@ -1,9 +1,9 @@
+ AUTOMAKE_OPTIONS = foreign
+ 
+ if DEBUG
+-AM_CFLAGS =$(DEPS_CFLAGS) $(CHECK_CFLAGS) -g
++AM_CFLAGS =$(DEPS_CFLAGS) $(CHECK_CFLAGS) -g -I../include
+ else
+-AM_CFLAGS = $(DEPS_CFLAGS) $(CHECK_CFLAGS)
++AM_CFLAGS = $(DEPS_CFLAGS) $(CHECK_CFLAGS) -I../include
+ #AM_CFLAGS = -fprofile-arcs -ftest-coverage $(DEPS_CFLAGS) $(CHECK_CFLAGS)
+ endif
+ 

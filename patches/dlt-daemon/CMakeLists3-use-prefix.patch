@@ -1,0 +1,9 @@
+--- dlt-daemon/src/tests/CMakeLists.txt	2013-04-03 15:17:11.311160032 +0200
++++ patched/dlt-daemon/src/tests/CMakeLists.txt	2013-04-06 16:39:41.735574497 +0200
+@@ -58,5 +58,5 @@
+ 	COMPONENT base)
+ 
+ INSTALL(FILES dlt-test-filetransfer-file dlt-test-filetransfer-image.png
+-	DESTINATION /usr/share/dlt-filetransfer
++	DESTINATION ${CMAKE_INSTALL_PREFIX}/usr/share/dlt-filetransfer
+ )

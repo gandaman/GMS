@@ -1,0 +1,19 @@
+--- dlt-daemon/automotive-dlt.spec.in	2013-04-06 16:34:44.083572862 +0200
++++ patched/dlt-daemon/automotive-dlt.spec.in	2013-04-06 16:29:58.687571295 +0200
+@@ -77,11 +77,11 @@
+ 
+ 
+ %files
+-#/etc/init.d/dlt-daemon
+-/etc/dlt-system.conf
+-/etc/dlt.conf
+-/usr/share/dlt-filetransfer/dlt-test-filetransfer-file
+-/usr/share/dlt-filetransfer/dlt-test-filetransfer-image.png
++%{_libdir}/../../etc/init.d/dlt-daemon
++%{_libdir}/../../etc/dlt-system.conf
++%{_libdir}/../../etc/dlt.conf
++%{_libdir}/../../usr/share/dlt-filetransfer/dlt-test-filetransfer-file
++%{_libdir}/../../usr/share/dlt-filetransfer/dlt-test-filetransfer-image.png
+ %{_libdir}/libdlt.so.@DLT_MAJOR_VERSION@
+ %{_libdir}/libdlt.so.@DLT_VERSION@
+ %{_libdir}/libdlt.so

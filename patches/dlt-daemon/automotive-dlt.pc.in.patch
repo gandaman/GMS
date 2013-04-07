@@ -1,0 +1,9 @@
+--- dlt-daemon/automotive-dlt.pc.in	2013-04-06 15:47:38.123557342 +0200
++++ gms_patches/dlt-daemon/automotive-dlt.pc.in	2013-04-06 15:52:17.399558877 +0200
+@@ -8,5 +8,5 @@
+ Version: @DLT_VERSION@
+ Requires: 
+ Libs: -L${libdir} -ldlt -lrt -lpthread -lz
+-Cflags: -I${includedir}/dlt -DDLT_@DLT_MAJOR_VERSION@_@DLT_MINOR_VERSION@
++Cflags: -I${includedir} -DDLT_@DLT_MAJOR_VERSION@_@DLT_MINOR_VERSION@
+ 

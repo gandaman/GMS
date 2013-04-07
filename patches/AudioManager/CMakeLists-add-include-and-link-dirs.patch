@@ -1,0 +1,18 @@
+--- AudioManager/CMakeLists.txt	2013-04-06 20:49:57.163272600 +0200
++++ patched/AudioManager/CMakeLists.txt	2013-04-06 20:51:41.051273166 +0200
+@@ -22,6 +22,15 @@
+                 OUTPUT_VARIABLE DAEMONVERSION 
+                 OUTPUT_STRIP_TRAILING_WHITESPACE)           
+ 
++# Without this, several files won't compile or link if an install prefix is
++# used, i.e. libs and headers of dependencies (like automotive-dlt) are not
++# found.  In the normal case it probably works only because /lib and /include
++# are searched by default by the compiler.  It might be cleaner to ensure that
++# the results from pkg-config are properly used for files depending on DLT, 
++# which does not seem to be the case.
++link_directories (${CMAKE_INSTALL_PREFIX}/lib)
++include_directories (${CMAKE_INSTALL_PREFIX}/include)
++
+ IF (NOT DAEMONVERSION)
+     #Can be changed via passing -DVERSION="XXX" to cmake
+     IF(NOT DEFINED VERSION)

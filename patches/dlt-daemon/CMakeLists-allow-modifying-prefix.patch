@@ -1,0 +1,12 @@
+--- dlt-daemon/CMakeLists.txt	2013-04-06 16:22:42.379568901 +0200
++++ patched/dlt-daemon/CMakeLists.txt	2013-04-06 16:10:43.579564949 +0200
+@@ -19,7 +19,8 @@
+ 
+ mark_as_advanced( CMAKE_BACKWARDS_COMPATIBILITY)
+ set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE )
+-set( CMAKE_INSTALL_PREFIX "/usr" )
++#set( CMAKE_INSTALL_PREFIX "/usr" )
++option(CMAKE_INSTALL_PREFIX      "Install prefix..."                                             /usr  )
+ 
+ # Set version parameters
+ set( DLT_MAJOR_VERSION 2)

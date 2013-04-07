@@ -1,0 +1,9 @@
+--- dlt-daemon/src/system/CMakeLists.txt	2013-04-06 17:05:49.505219747 +0200
++++ patched/dlt-daemon/src/system/CMakeLists.txt	2013-04-06 17:02:17.171438579 +0200
+@@ -31,5 +31,5 @@
+ 	COMPONENT base)
+ 
+ INSTALL(FILES 	${CMAKE_CURRENT_SOURCE_DIR}/dlt-system.conf
+-	DESTINATION /etc
++	DESTINATION ${CMAKE_INSTALL_PREFIX}/etc
+ 	COMPONENT base)
