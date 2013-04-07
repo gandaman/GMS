@@ -1,0 +1,21 @@
+[submodule "AudioManager"]
+	path = AudioManager
+	url = git://git.projects.genivi.org/AudioManager.git
+[submodule "busybox"]
+	path = busybox
+	url = git://git.busybox.net/busybox
+[submodule "dlt-daemon"]
+	path = dlt-daemon
+	url = git://git.projects.genivi.org/dlt-daemon.git
+[submodule "node-startup-controller"]
+	path = node-startup-controller
+	url = git://git.projects.genivi.org/lifecycle/node-startup-controller.git
+[submodule "node-state-manager"]
+	path = node-state-manager
+	url = git://git.projects.genivi.org/lifecycle/node-state-manager.git
+[submodule "persistence-client-library"]
+	path = persistence-client-library
+	url = git://git.projects.genivi.org/persistence/persistence-client-library.git
+[submodule "systemd"]
+	path = systemd
+	url = git://anongit.freedesktop.org/systemd/systemd
