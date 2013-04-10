@@ -34,5 +34,6 @@ echo "Patches"
 echo "*************************************************************"
 # Apply all patches
 for p in $(find patches/ -type f -name '*.patch') ; do
-   patch -p1 <$p -N -r - -s 2>&1 | egrep -v "hunk ignored"
+   (patch -p1 <$p -N -r - -s 2>&1 && echo "Applied $p") \
+   | grep -v "hunk ignored"
 done
