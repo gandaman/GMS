@@ -9,7 +9,10 @@ mkdir -p $ROOTFS/{tmp,lib,lib/i386-linux-gnu}
 # Copy basic runtime stuff and various libs
 # Paths may be Ubuntu specific?
 cp /lib/ld-linux.so.* $ROOTFS/lib/
-cp /lib/i386-linux-gnu/lib{c,m,rt,pthread}.so* $ROOTFS/lib/i386-linux-gnu
+
+# TODO: Reduce to minimally required
+cp /lib/i386-linux-gnu/* $ROOTFS/lib/i386-linux-gnu
+cp /lib/i386-linux-gnu/lib{gcc_s,c,m,rt,pthread}.so* $ROOTFS/lib/i386-linux-gnu
 
 cat <<EOT >$ROOTFS/etc/profile
 echo
