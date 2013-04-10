@@ -7,8 +7,7 @@ SRCDIR=persistence-client-library
 SCRIPTDIR=$(dirname "$0") ; . $SCRIPTDIR/build-common.sh
 
 # MODULE SPECIFIC BUILD COMMANDS
-autoreconf -vi && \
-./configure --enable-tests --prefix=$ROOTFS && \
-make V=1 -j8 && \
-make V=1 install \
-|| exit 1
+buildstep autoreconf -vi
+buildstep ./configure --enable-tests --prefix=$ROOTFS
+buildstep make V=1 -j8
+buildstep make V=1 install

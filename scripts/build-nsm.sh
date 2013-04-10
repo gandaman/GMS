@@ -7,7 +7,8 @@ SRCDIR=node-state-manager
 SCRIPTDIR=$(dirname "$0") ; . $SCRIPTDIR/build-common.sh
 
 # MODULE SPECIFIC BUILD COMMANDS
-./autogen.sh --prefix=$PWD/../rootfs --with-dbuspolicydir=$PWD/../rootfs --with-dbussystemunitdir=$PWD/../rootfs && \
-make V=1 -j8 && \
-make V=1 install \
-|| exit 1
+buildstep ./autogen.sh --prefix=$ROOTFS                 \
+                       --with-dbuspolicydir=$ROOTFS     \
+                       --with-dbussystemunitdir=$ROOTFS
+buildstep make V=1 -j8
+buildstep make V=1 install
