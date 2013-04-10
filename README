@@ -18,8 +18,8 @@ basic tests.
 
 Therefore: (design decisions)
  - No cross compilation
- - No fancy frameworks 
-   (Whatever OE/Yocto is this is not, for better and for worse)
+ - No fancy frameworks : whatever OE/Yocto is, this is not, (for better 
+   and for worse)
  - Goals: 
          - Stay lean and simple
          - Solve things straight-on and with minimal fuss
@@ -32,29 +32,28 @@ Therefore: (design decisions)
  - Might break any time 
  - ... but can probably be quickly fixed too
  - ... and shouldn't break spontaneously (submodules are locked to a commit)
- - The build executes directly on your host in a chrooted shell
+ - Execution is done directly on your machine in a chrooted shell
    Consequences:
       - it will never support any "embedded" features e.g. layermanager etc.
-      - and likely will not prioritize graphical applications, browsers etc.
-      - and no boot of kernel/init, at least now (see GLASS ELEVATOR)
-      - and is useful for testing infrastructure components primarily.
-
+      - it will likely will not prioritize graphical appl., browsers etc.
+      - no booting of kernel/init, at least now (see GLASS ELEVATOR)
+      - is useful for testing infrastructure components primarily.
       - On the other hand it will also not clobber your host standard paths
         with the built components.
-      - And doesn't require root for any build or install steps (only 
-        for starting a chroot)
+      - and doesn't require root for any build/install steps (only 
+        starting a chroot)
 
 FEATURES
  - A single project git tree that pulls in components as submodules
    (non-git component has a download script instead)
  - Small and simple Bourne-shell build scripts, one per component
- - Separate patch directory.  
+ - Separate patch directory, as opposed to cloning and changing components
    N.B.:   Patching is necessary to make this build even
-           work(!) Please look at these and either bring upstream or tell 
-           me I'm stupid. There are really only those 2 possibilities...)
- - Busybox commandline, so that you can move around and try stuff.  
-   Configure it as you wish - by default it uses defconfig which includes 
-   quite a lot.
+           work(!) So please look at these and either bring upstream or tell 
+           me I'm stupid. (There are only 2 options here...)
+ - Busybox commandline, so that you have a shell, can move around and try
+   stuff.  Configure it at build time - by default it uses defconfig which
+   includes most common tools.
 
 HOWTO
  - Clone the GMS project
@@ -62,11 +61,10 @@ HOWTO
    glib, gio, libgcrypt, dbus etc.)
    There are quite a few others, you might find info in the component docs.
  - Run scripts/init.sh to pull source code into submodules and apply patches
- - Then try scripts/build-xxx one by one, especially if you think you are
-   missing deps.  When everything is fulfilled you can also use "build-all.sh"
+ - Then try scripts/build-xxx one by one, or build-all.sh
    Look at "build-all.sh" to see the required build order, or you will have
    unnecessary failures because of that.
- - Install missing build deps.  Repeat.
+ - Look at the failures and install missing build deps. Repeat.
  - Run scripts/start_chroot.sh (also done by build-all).
 
 TODOs (don't count on it... do it yourself and send a patch)
@@ -85,7 +83,6 @@ TODOs (don't count on it... do it yourself and send a patch)
 GLASS ELEVATOR (i.e. "wish list" features that may never see the light of day)
  - Automatic download of all host build deps
  - Support multiple host distros out of the box
- - AF_BUS, if previous point is ever done
  - Shrink target, live up to the Minimal name.  (Some components install docs
    and such useless crap in the target root fs. This gives embedded engineers
    nightmares)
@@ -94,6 +91,7 @@ GLASS ELEVATOR (i.e. "wish list" features that may never see the light of day)
  - Run using LXC instead of chroot.  (But in its current state I think there
    would be no practical difference)
  - Add kernel+systemd init and run virtualized with KVM tool or in QEMU. 
+ - AF_BUS, if previous point is ever done
 
 BUGS AND SUCH
  - Lots, in the form of things that are not finished and simply
