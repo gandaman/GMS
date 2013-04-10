@@ -7,7 +7,7 @@ SRCDIR=node-startup-controller
 SCRIPTDIR=$(dirname "$0") ; . $SCRIPTDIR/build-common.sh
 
 # MODULE SPECIFIC BUILD COMMANDS
-buildstep test -d m4 || mkdir m4
+test -d m4 || mkdir m4
 buildstep gtkdocize
 buildstep autoreconf -ivf
 export SYSTEMD_DAEMON_LIBS="-L$GMS_ROOT/usr/lib -lsystemd-daemon"
