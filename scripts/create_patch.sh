@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright and License: See GMS project README
 
 # STD SETUP
 SCRIPTDIR=$(dirname "$0") ; . $SCRIPTDIR/build-common.sh

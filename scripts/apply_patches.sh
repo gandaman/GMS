@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright and License: See GMS project README
 
 # STD SETUP
 D=$(dirname "$0") ; . "$D/build-common.sh"

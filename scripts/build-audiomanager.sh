@@ -1,4 +1,5 @@
 #!/bin/sh -x
+# Copyright and License: See GMS project README
 
 # MODULE
 SRCDIR=AudioManager

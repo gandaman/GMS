@@ -1,3 +1,4 @@
+# Copyright and License: See GMS project README
 SCRIPTDIR=$(dirname "$0")
 cd "$SCRIPTDIR/.."
 export GMS_ROOT="$PWD"

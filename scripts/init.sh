@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright and License: See GMS project README
 
 if [ ! -d .git ] ; then
    echo "Please run script from the project root, i.e. :  $ scripts/<scriptfile>"
