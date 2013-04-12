@@ -35,7 +35,7 @@ Therefore: (design decisions)
  - Execution is done directly on your machine in a chrooted shell
    Consequences:
       - it will never support any "embedded" features e.g. layermanager etc.
-      - it will likely will not prioritize graphical appl., browsers etc.
+      - it will probably not prioritize graphical appl., browsers etc.
       - no booting of kernel/init, at least now (see GLASS ELEVATOR)
       - is useful for testing infrastructure components primarily.
       - On the other hand it will also not clobber your host standard paths
@@ -67,18 +67,19 @@ HOWTO
  - Look at the failures and install missing build deps. Repeat.
  - Run scripts/start_chroot.sh (also done by build-all).
 
-TODOs (don't count on it... do it yourself and send a patch)
+TODOs 
  - Finish it.  Make it useable.  Actually try the binaries to see what runtime
-   deps are missing...
- - So far very little runs. There are missing libraries etc.
+   deps are missing... So far very little runs. There are missing libraries
+   etc...
  - Add more GENIVI components
- - See if systemd runs and could be used despite not being the init process
  - Implement an application that uses Lifecycle
  - Implement an application that uses Persistence
- - Test build system on a clean host install and document needed build deps
- - Put a copy of Itzam code in github to have uniform handling of all components
+ - Configure and use a node state machine
+ - Make use of systemd if possible even if it is not the init process
+ - Test build system on a clean host and document needed build deps
+ - Maybe put a copy of Itzam code in github to get uniform handling 
    (or leach off Baserock repos that do exactly that ;-)  But it works
-   this way too.
+   for now.
 
 GLASS ELEVATOR (i.e. "wish list" features that may never see the light of day)
  - Automatic download of all host build deps
@@ -106,7 +107,7 @@ LICENSE
 Components have their respective licenses and copyright holders as
 indicated in their source trees.
 Scripts and additions, for now:
-(C) 2013 Gunnar Andersson, licensed under
+(C) 2013 Gunnar Andersson
 Creative Commons Attribution Sharealike 3.0
 (http://creativecommons.org/licenses/by-sa/3.0/)
 
