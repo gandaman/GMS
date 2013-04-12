@@ -1,21 +1,28 @@
 [submodule "AudioManager"]
 	path = AudioManager
 	url = git://git.projects.genivi.org/AudioManager.git
+        ignore = dirty
 [submodule "busybox"]
 	path = busybox
 	url = git://git.busybox.net/busybox
+        ignore = dirty
 [submodule "dlt-daemon"]
 	path = dlt-daemon
 	url = git://git.projects.genivi.org/dlt-daemon.git
+        ignore = dirty
 [submodule "node-startup-controller"]
 	path = node-startup-controller
 	url = git://git.projects.genivi.org/lifecycle/node-startup-controller.git
+        ignore = dirty
 [submodule "node-state-manager"]
 	path = node-state-manager
 	url = git://git.projects.genivi.org/lifecycle/node-state-manager.git
+        ignore = dirty
 [submodule "persistence-client-library"]
 	path = persistence-client-library
 	url = git://git.projects.genivi.org/persistence/persistence-client-library.git
+        ignore = dirty
 [submodule "systemd"]
 	path = systemd
 	url = git://anongit.freedesktop.org/systemd/systemd
+        ignore = dirty
