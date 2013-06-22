@@ -55,12 +55,13 @@ FEATURES
    stuff.  Configure it at build time - by default it uses defconfig which
    includes most common tools.
 
-HOWTO
+INSTALL/HOWTO
  - Clone the GMS project
  - Install host build deps that you know of (gcc/g++, build_essential,
    glib, gio, libgcrypt, dbus etc.)
    There are quite a few others, you might find info in the component docs.
- - Run scripts/init.sh to pull source code into submodules and apply patches
+ - Run scripts/init.sh to pull source code into submodules and apply
+   patches
  - Then try scripts/build-xxx one by one, or build-all.sh
    Look at "build-all.sh" to see the required build order, or you will have
    unnecessary failures because of that.
