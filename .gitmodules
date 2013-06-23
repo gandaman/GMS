@@ -26,3 +26,6 @@
 	path = systemd
 	url = git://anongit.freedesktop.org/systemd/systemd
         ignore = dirty
+[submodule "itzamc"]
+	path = itzamc
+	url = https://github.com/gandaman/itzamc.git

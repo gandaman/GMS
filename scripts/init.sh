@@ -25,12 +25,6 @@ git submodule init     || fail
 git submodule update   || fail
 
 echo "*************************************************************"
-echo "Fetch non-git modules"
-echo "*************************************************************"
-# Download ItzamC
-itzamc/get.sh   || fail
-
-echo "*************************************************************"
 echo "Patches"
 echo "*************************************************************"
 # Apply all patches
