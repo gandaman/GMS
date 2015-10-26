@@ -10,11 +10,11 @@ failures=""
 cd $GMS_ROOT
 scripts/build-dlt-daemon.sh   || failures+="build-dlt-daemon.sh, "
 scripts/build-systemd.sh      || failures+="build-systemd.sh, "
+scripts/build-itzamc.sh       || failures+="build-itzamc.sh, "
+scripts/build-pcl.sh          || failures+="build-pcl.sh, "
 scripts/build-nsm.sh          || failures+="build-nsm.sh, "
 scripts/build-nsc.sh          || failures+="build-nsc.sh, "
 scripts/build-audiomanager.sh || failures+="build-audiomanager.sh, "
-scripts/build-itzamc.sh       || failures+="build-itzamc.sh, "
-scripts/build-pcl.sh          || failures+="build-pcl.sh, "
 scripts/build-busybox.sh      || failures+="build-busybox.sh, "
 
 set +x

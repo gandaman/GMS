@@ -11,5 +11,5 @@ SCRIPTDIR=$(dirname "$0") ; . $SCRIPTDIR/build-common.sh
 buildstep ./autogen.sh --prefix=$ROOTFS                 \
                        --with-dbuspolicydir=$ROOTFS     \
                        --with-dbussystemunitdir=$ROOTFS
-buildstep make V=1 -j8
-buildstep make V=1 install
+buildstep make V=1 CFLAGS+=$ROOTFS/usr/include -j8
+buildstep make V=1  install
